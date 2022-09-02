@@ -5,11 +5,11 @@
 ## Gradle
 
 ``` groovy
-repositories { 
-    maven { url "https://gitee.com/ezy/repo/raw/android_public/"}
-} 
+repositories {
+    maven { url "https://gitee.com/ezy/repo/raw/cosmo/"}
+}
 dependencies {
-    implementation "me.reezy.jetpack:servicelocator:0.4.0" 
+    implementation "me.reezy.cosmo:servicelocator:0.7.0"
 }
 ```
 
@@ -18,6 +18,8 @@ dependencies {
 ```kotlin
 // 获取实例
 inline fun <reified T> resolve(name: String = T::class.java.name): T?
+// 注入实例
+inline fun <reified T> inject(name: String = T::class.java.name): Lazy<T>
 // 注册为单例
 inline fun <reified T> singleton(name: String = T::class.java.name, crossinline block: () -> T)
 // 注册为工厂
@@ -40,7 +42,12 @@ singleton {
 }
 
 // 获取
-val service = resolve<SomeService>() 
+val service = resolve<SomeService>()
+
+// 注入
+class TheContext {
+    val service: SomeService by inject()
+}
 ```
 
 具名单例 
