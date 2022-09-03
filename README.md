@@ -1,6 +1,13 @@
 # ServiceLocator
- 
-一个简单的服务定位器模式实现
+
+一个简单的服务定位器模式实现。
+
+依赖注入(Dependency Injection)和服务定位器(Service Locator)是实现控制反转(Inversion of Control)的两种主要手段。
+
+Android的主流依赖注入框架有：Dagger 和 Kion
+
+如果觉得这些依赖注入框架太重，可以试试这个 ServiceLocator
+
 
 ## Gradle
 
