@@ -9,8 +9,12 @@ dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         maven { url cosmoRepoPath }
+        maven { url "https://jitpack.io" }
         google()
         mavenCentral()
+    }
+    versionCatalogs {
+        libs { from files("$buildGradlePath/versions-cosmo.toml") }
     }
 }
 rootProject.name = "servicelocator"
